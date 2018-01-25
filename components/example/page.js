@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { Button } from 'antd-mobile'
 
 import AddCount from '../add-count'
 import Clock from '../clock'
@@ -14,7 +15,7 @@ function Page ({error, lastUpdate, light, linkTo, placeholderData, title}) {
       <AddCount />
       <nav>
         <Link href={linkTo}>
-          <a>Navigate</a>
+          <Button>Navigate</Button>
         </Link>
       </nav>
       {placeholderData &&

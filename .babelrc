@@ -28,8 +28,22 @@
           "components": "./components",
           "models": "./models",
           "conf": "./conf",
+          "styles": "./styles",
           "pages": "./pages"
-        }
+        },
+        "cwd": "babelrc"
+      }
+    ],
+    [
+      "wrap-in-js",
+      {
+        "extensions": ["css$", "scss$"]
+      }
+    ],
+    [
+      "import",
+      {
+        "libraryName": "antd-mobile"
       }
     ]
   ]
