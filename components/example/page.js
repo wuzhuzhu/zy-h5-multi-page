@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 import AddCount from '../add-count'
 import Clock from '../clock'
-import MainLayout from '../layouts/main-layout'
+import MainLayout from 'components/layouts/main-layout'
 
 function Page ({error, lastUpdate, light, linkTo, placeholderData, title}) {
   return (

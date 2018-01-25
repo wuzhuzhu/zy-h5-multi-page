@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 
-import {increment} from '../models/example/actions'
+import {increment} from 'models/example/actions'
 
 class AddCount extends Component {
   add = () => {

@@ -18,5 +18,19 @@
         "transform-decorators-legacy"
       ]
     }
-  }
+  },
+  "plugins": [
+    [
+      "module-resolver",
+      {
+        "root": ["./"],
+        "alias": {
+          "components": "./components",
+          "models": "./models",
+          "conf": "./conf",
+          "pages": "./pages"
+        }
+      }
+    ]
+  ]
 }

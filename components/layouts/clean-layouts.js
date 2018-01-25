@@ -1,7 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
 
-import registerServiceWorker from '../../utils/registerServiceWorker'
+import registerServiceWorker from 'utils/registerServiceWorker'
 
 export default class extends React.PureComponent {
   componentDidMount () {
