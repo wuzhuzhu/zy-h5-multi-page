@@ -23,14 +23,23 @@
     [
       "module-resolver",
       {
-        "root": ["./"],
+        "root": ["."],
         "alias": {
           "components": "./components",
           "models": "./models",
           "conf": "./conf",
-          "pages": "./pages"
-        }
+          "pages": "./pages",
+          "styles": "./styles"
+        },
+        "cwd": "babelrc"
+      }
+    ],
+    [
+      "wrap-in-js",
+      {
+        "extensions": ["css$", "scss$"]
       }
     ]
-  ]
+  ],
+  "ignore": []
 }
