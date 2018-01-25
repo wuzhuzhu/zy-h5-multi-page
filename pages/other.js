@@ -1,9 +1,10 @@
 import React from 'react'
-
+import { connect } from 'react-redux'
 import {increment, startClock} from '../models/example/actions'
 import { withReduxSaga } from '../models/store'
-import Page from '../components/page'
+import Page from '../components/example/page'
 
+@connect(state => state)
 class Counter extends React.Component {
   static async getInitialProps ({store}) {
     store.dispatch(increment())
@@ -14,7 +15,7 @@ class Counter extends React.Component {
   }
 
   render () {
-    return <Page title='Other Page' linkTo='/example' />
+    return <Page title='Other Page' linkTo='/example' {...this.props} />
   }
 }
 

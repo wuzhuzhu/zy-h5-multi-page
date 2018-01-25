@@ -1,9 +1,8 @@
 import Link from 'next/link'
-import {connect} from 'react-redux'
 
-import AddCount from './add-count'
-import Clock from './clock'
-import MainLayout from './layouts/main-layout'
+import AddCount from '../add-count'
+import Clock from '../clock'
+import MainLayout from '../layouts/main-layout'
 
 function Page ({error, lastUpdate, light, linkTo, placeholderData, title}) {
   return (
@@ -32,4 +31,4 @@ function Page ({error, lastUpdate, light, linkTo, placeholderData, title}) {
   )
 }
 
-export default connect(state => state)(Page)
+export default Page
