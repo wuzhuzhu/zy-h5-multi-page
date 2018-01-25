@@ -1,7 +1,7 @@
 import React from 'react'
 
-import {increment, loadData, startClock} from '../actions'
-import {withReduxSaga} from '../store'
+import {increment, loadData, startClock} from '../models/example/actions'
+import {withReduxSaga} from '../models/store'
 import Page from '../components/page'
 
 class Counter extends React.Component {

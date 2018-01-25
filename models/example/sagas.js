@@ -27,11 +27,7 @@ function * loadDataSaga () {
   }
 }
 
-function * rootSaga () {
-  yield all([
-    call(runClockSaga),
-    takeLatest(actionTypes.LOAD_DATA, loadDataSaga)
-  ])
-}
-
-export default rootSaga
+export default [
+  call(runClockSaga),
+  takeLatest(actionTypes.LOAD_DATA, loadDataSaga)
+]

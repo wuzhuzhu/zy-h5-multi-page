@@ -4,8 +4,8 @@ import withRedux from 'next-redux-wrapper'
 import nextReduxSaga from 'next-redux-saga'
 import createSagaMiddleware from 'redux-saga'
 
-import rootReducer, {exampleInitialState} from './reducer'
-import rootSaga from './saga'
+import rootReducer, {exampleInitialState} from './example/reducer'
+import rootSaga from './rootSaga'
 
 const sagaMiddleware = createSagaMiddleware()
 
