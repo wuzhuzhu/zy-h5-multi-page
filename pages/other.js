@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import {increment, startClock} from '../models/example/actions'
 import { withReduxSaga } from '../models/store'
-import Page from '../components/example/page'
+import Page from 'components/example/page'
 
 @connect(state => state)
 class Counter extends React.Component {
