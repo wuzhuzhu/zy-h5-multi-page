@@ -1,12 +1,7 @@
 import {actionTypes} from './actions'
+import initState from '../initState'
 
-export const exampleInitialState = {
-  count: 0,
-  error: false,
-  lastUpdate: 0,
-  light: false,
-  placeholderData: null
-}
+export const exampleInitialState = initState.example
 
 function reducer (state = exampleInitialState, action) {
   switch (action.type) {
