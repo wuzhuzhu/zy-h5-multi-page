@@ -1,6 +1,7 @@
 import CleanLayout from './clean-layouts'
 import React from 'react';
-import stylesheet from 'styles/index.scss'
+import globalCss from 'styles/index.scss'
+import antdCss from 'antd-mobile/dist/antd-mobile.css'
 
 class Mainlayout extends React.Component {
   componentDidMount () {
@@ -9,11 +10,10 @@ class Mainlayout extends React.Component {
   render () {
     return (
       <CleanLayout>
-        <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
-        <p>这个来自于main-layout</p>
-        <div style={{ border: '1px dotted gray' }}>
-          { this.props.children }
-        </div>
+        <style dangerouslySetInnerHTML={{ __html: globalCss }} />
+        <style dangerouslySetInnerHTML={{ __html: antdCss }} />
+        {/*<p>这个来自于main-layout</p>*/}
+        { this.props.children }
       </CleanLayout>
     )
   }
