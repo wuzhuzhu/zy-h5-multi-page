@@ -12,10 +12,12 @@ app.prepare()
     const server = new Koa()
     const router = new Router()
 
+    /*
     router.get('/other', async ctx => {
       await app.render(ctx.req, ctx.res, '/other', ctx.query)
       ctx.respond = false
     })
+    */
 
     router.get('*', async ctx => {
       await handle(ctx.req, ctx.res)

@@ -3,10 +3,11 @@ import {connect} from 'react-redux'
 
 import AddCount from './add-count'
 import Clock from './clock'
+import MainLayout from './layouts/main-layout'
 
 function Page ({error, lastUpdate, light, linkTo, placeholderData, title}) {
   return (
-    <div>
+    <MainLayout>
       <h1>
         {title}
       </h1>
@@ -27,7 +28,7 @@ function Page ({error, lastUpdate, light, linkTo, placeholderData, title}) {
         <p style={{color: 'red'}}>
           Error: {error.message}
         </p>}
-    </div>
+    </MainLayout>
   )
 }
 
