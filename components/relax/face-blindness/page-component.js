@@ -2,7 +2,12 @@ import Link from 'next/link'
 
 export default () => (
   <div>
-    专治脸盲
+    <style jsx>{`
+          p {
+            color: red;
+          }
+        `}</style>
+    <p>专治脸盲1</p>
   </div>
 )
 
