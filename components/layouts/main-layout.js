@@ -1,5 +1,6 @@
 import CleanLayout from './clean-layouts'
 import React from 'react';
+import dynamic from 'next/dynamic'
 
 import antdCss from 'antd-mobile/dist/antd-mobile.css'
 

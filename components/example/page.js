@@ -1,9 +1,10 @@
 import Link from 'next/link'
 import { Button, List, InputItem } from 'antd-mobile'
+import dynamic from 'next/dynamic'
 
 import AddCount from '../add-count'
 import Clock from '../clock'
-import MainLayout from '../layouts/main-layout'
+const MainLayout = dynamic(import('../layouts/main-layout'))
 
 function Page ({error, lastUpdate, light, linkTo, placeholderData, title}) {
   return (
