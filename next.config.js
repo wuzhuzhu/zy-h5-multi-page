@@ -1,26 +1,17 @@
-const path = require('path') // global css
-const glob = require('glob') // global css
 // const webpack = require('webpack')
+const glob = require('glob') // global css
+const path = require('path') // global css
+const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin')
+// const workboxPlugin = require('workbox-webpack-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
-const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin')
+const next = '.next/dist'
 // TODO: change into workbox-webpack-plugin
 const { ANALYZE } = process.env
 
 module.exports = {
   webpack: (config) => {
-    config.plugins.push(
-      new SWPrecacheWebpackPlugin({
-        verbose: true,
-        staticFileGlobsIgnorePatterns: [/\.next\//],
-        runtimeCaching: [
-          {
-            handler: 'networkFirst',
-            urlPattern: /^https?.*/
-          }
-        ]
-      })
-    )
+
     /* exclude server only package.
     config.plugins.push(
       new webpack.IgnorePlugin(/koa/)
@@ -61,6 +52,36 @@ module.exports = {
           }
         ]
       }
+    )
+    config.plugins.push(
+      /*
+      new workboxPlugin({
+        verbose: true,
+        globDirectory: next,
+        globPatterns: ['*'],
+        // globPatterns: ['./!**!/!*.{html,js,css}'],
+        swDest: path.join(next, 'service-worker.js'),
+        clientsClaim: true,
+        skipWaiting: true,
+        runtimeCaching: [
+          {
+            urlPattern: new RegExp('http://localhost'),
+            handler: 'staleWhileRevalidate'
+          }
+        ]
+      })
+      */
+      new SWPrecacheWebpackPlugin({
+       verbose: true,
+       staticFileGlobsIgnorePatterns: [/\.next\//],
+       runtimeCaching: [
+         {
+           // handler: 'fastest',
+           handler: 'networkFirst',
+           urlPattern: /^https?.*/
+         }
+       ]
+      })
     )
     return config
   }
