@@ -1,5 +1,6 @@
 const path = require('path') // global css
 const glob = require('glob') // global css
+// const webpack = require('webpack')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin')
@@ -20,6 +21,11 @@ module.exports = {
         ]
       })
     )
+    /* exclude server only package.
+    config.plugins.push(
+      new webpack.IgnorePlugin(/koa/)
+    )
+    */
     if (ANALYZE) {
       config.plugins.push(new BundleAnalyzerPlugin({
         analyzerMode: 'server',
