@@ -26,5 +26,5 @@ class AddCount extends Component {
   }
 }
 
-const mapStateToProps = ({count}) => ({count})
+const mapStateToProps = (state) => ({count: state.example.count})
 export default connect(mapStateToProps)(AddCount)

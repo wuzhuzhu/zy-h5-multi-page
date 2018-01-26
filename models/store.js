@@ -4,12 +4,13 @@ import withRedux from 'next-redux-wrapper'
 import nextReduxSaga from 'next-redux-saga'
 import createSagaMiddleware from 'redux-saga'
 
-import rootReducer, {exampleInitialState} from './example/reducer'
+import rootReducer from './reducers'
+import initState from './initState'
 import rootSaga from './rootSaga'
 
 const sagaMiddleware = createSagaMiddleware()
 
-export function configureStore (initialState = exampleInitialState) {
+export function configureStore (initialState = initState) {
   const store = createStore(
     rootReducer,
     initialState,

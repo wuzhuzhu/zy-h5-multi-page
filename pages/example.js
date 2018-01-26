@@ -5,7 +5,7 @@ import {increment, loadData, startClock} from 'models/example/actions'
 import { withReduxSaga } from 'models/store'
 import Page from 'components/example/page'
 
-@connect(state => state)
+@connect(state => state.example)
 class Counter extends React.Component {
   static async getInitialProps ({store}) {
     store.dispatch(increment())
