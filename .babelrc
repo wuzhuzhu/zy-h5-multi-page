@@ -29,6 +29,7 @@
           "models": "./models",
           "conf": "./conf",
           "pages": "./pages",
+          "constants": "./constants",
           "styles": "./styles"
         },
         "cwd": "babelrc"
