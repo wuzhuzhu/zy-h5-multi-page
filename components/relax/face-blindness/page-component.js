@@ -7,7 +7,7 @@ class FaceBlindPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      hidden: [3],
+      hidden: [],
       startTime: undefined,
       imgSetIndex: 0,
       imgQue: this.getRandomQue()
@@ -100,10 +100,11 @@ const ImgContainer = ({ src, index, hidden, onClick }) => (
         align-items: center;
 
         opacity: ${ hidden ? 1 : 0 };
+        transition: opacity .6s;
       }
       .img-container .mask h1 {
         color: white;
-        font-size: 75px;
+        font-size: 150px;
         font-weight: normal;
       }
       .img-container img {
