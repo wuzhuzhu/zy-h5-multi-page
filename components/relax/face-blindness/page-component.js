@@ -7,7 +7,7 @@ class FaceBlindPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      hidden: [],
+      hidden: [3],
       startTime: undefined,
       imgSetIndex: 0,
       imgQue: this.getRandomQue()
@@ -15,6 +15,7 @@ class FaceBlindPage extends Component {
   }
 
   onClickImg = (index) => {
+    debugger
     const alreadyHidden = this.state.hidden.indexOf(index) !== -1
     this.setState({
       hidden: alreadyHidden
@@ -37,13 +38,13 @@ class FaceBlindPage extends Component {
           </div>
 
             {imgQue.map((img, index) =>
-              <div className="img-container">
-                <img
-                  src={`/static/img/face-blind/${imgSetIndex}/${img}.jpg`}
-                  alt="avatar"
-                  key={`img${index}`}
-                />
-              </div>
+              <ImgContainer
+                src={`/static/img/face-blind/${imgSetIndex}/${img}.jpg`}
+                index={index}
+                hidden={this.state.hidden.indexOf(index) !== -1}
+                onClick={(i) => this.onClickImg(i)}
+              />
+
             )}
 
         </div>
@@ -64,21 +65,55 @@ class FaceBlindPage extends Component {
           }
           .header {
             grid-column: 1 / 5;
-          }
-          .img-container {
-            /*background: green;*/
-            max-height: 100%;
-          }
-          .img-container img {
-            max-height: 100%;
-            object-fit: cover;
-            /*max-width: 100%;*/
           }`}
         </style>
       </div>
     )
   }
 }
+
+const ImgContainer = ({ src, index, hidden, onClick }) => (
+  <div className="img-container" onClick={() => onClick(index)}>
+    <div className="mask">
+      <h1>{index + 1}</h1>
+    </div>
+    <img
+      src={src}
+      alt="avatar"
+      key={`img${index}`}
+    />
+    <style jsx>{`
+      .img-container {
+        /*background: green;*/
+        max-height: 100%;
+        /*border: 1px solid green;*/
+        position: relative;
+      }
+      .img-container .mask {
+        position: absolute;
+        background: #aaa;
+        width: 100%;
+        height: 100%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        opacity: ${ hidden ? 1 : 0 };
+      }
+      .img-container .mask h1 {
+        color: white;
+        font-size: 75px;
+        font-weight: normal;
+      }
+      .img-container img {
+        max-height: 100%;
+        object-fit: cover;
+        /*max-width: 100%;*/
+      }`}
+    </style>
+  </div>
+)
 
 
 export default FaceBlindPage
