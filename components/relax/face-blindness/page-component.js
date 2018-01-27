@@ -15,7 +15,6 @@ class FaceBlindPage extends Component {
   }
 
   onClickImg = (index) => {
-    debugger
     const alreadyHidden = this.state.hidden.indexOf(index) !== -1
     this.setState({
       hidden: alreadyHidden
@@ -36,7 +35,6 @@ class FaceBlindPage extends Component {
           <div className="header">
             <h2>专治脸盲</h2>
           </div>
-
             {imgQue.map((img, index) =>
               <ImgContainer
                 src={`/static/img/face-blind/${imgSetIndex}/${img}.jpg`}
@@ -44,7 +42,6 @@ class FaceBlindPage extends Component {
                 hidden={this.state.hidden.indexOf(index) !== -1}
                 onClick={(i) => this.onClickImg(i)}
               />
-
             )}
 
         </div>
@@ -110,6 +107,7 @@ const ImgContainer = ({ src, index, hidden, onClick }) => (
       .img-container img {
         max-height: 100%;
         object-fit: cover;
+
         /*max-width: 100%;*/
       }`}
     </style>
