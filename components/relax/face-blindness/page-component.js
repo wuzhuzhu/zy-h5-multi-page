@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import css from 'styled-jsx/css'
-// import imgs from 'constants/mock/face-blind'
 import { Component } from "react";
 import { shuffle, without } from 'lodash'
 
