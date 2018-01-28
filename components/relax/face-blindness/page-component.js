@@ -45,6 +45,7 @@ class FaceBlindPage extends Component {
             )}
 
         </div>
+        { /*language=CSS*/ }
         <style jsx>{`
           .wrapper {
             height: 100vh;
@@ -81,6 +82,7 @@ const ImgContainer = ({ src, index, hidden, onClick }) => (
       alt="avatar"
       key={`img${index}`}
     />
+    { /*language=CSS*/ }
     <style jsx>{`
       .img-container {
         /*background: green;*/
@@ -100,6 +102,8 @@ const ImgContainer = ({ src, index, hidden, onClick }) => (
 
         opacity: ${ hidden ? 1 : 0 };
         transition: opacity .6s;
+
+        overflow: hidden;
       }
       .img-container .mask h1 {
         color: white;
@@ -108,9 +112,8 @@ const ImgContainer = ({ src, index, hidden, onClick }) => (
       }
       .img-container img {
         max-height: 100%;
-        object-fit: cover;
-
-        /*max-width: 100%;*/
+        max-width: 100%;
+        /*object-fit: cover;*/
       }`}
     </style>
   </div>
