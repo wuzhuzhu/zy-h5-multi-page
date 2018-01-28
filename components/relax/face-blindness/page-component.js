@@ -31,10 +31,10 @@ class FaceBlindPage extends Component {
     const { revealed, startTime, imgSetIndex, imgQue } = this.state
     return (
       <div className='wrapper'>
+        <div className="header">
+          <h2>专治脸盲</h2>
+        </div>
         <div className="img-wrapper">
-          <div className="header">
-            <h2>专治脸盲</h2>
-          </div>
             {imgQue.map((img, index) =>
               <ImgContainer
                 src={`/static/img/face-blind/${imgSetIndex}/${img}.jpg`}
@@ -48,11 +48,13 @@ class FaceBlindPage extends Component {
         <style jsx>{`
           .wrapper {
             height: 100vh;
+            display: flex;
+            flex-direction: column;
           }
           .wrapper .img-wrapper {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            grid-template-rows: 40px repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
             grid-column-gap: 20px;
             grid-row-gap: 20px;
 
@@ -107,7 +109,7 @@ const ImgContainer = ({ src, index, hidden, onClick }) => (
       .img-container img {
         max-height: 100%;
         object-fit: cover;
-        filter: grayscale();
+
         /*max-width: 100%;*/
       }`}
     </style>
