@@ -39,7 +39,8 @@ const ImgContainer = ({ src, index, hidden, onClick }) => (
       .img-container img {
         max-height: 100%;
         max-width: 100%;
-        /*filter: grayscale();*/
+        filter: grayscale();
+        opacity: ${ hidden ? 0 : 1 };
         /*object-fit: cover;*/
       }`}
     </style>
