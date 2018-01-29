@@ -6,7 +6,7 @@ import { shuffle, without } from 'lodash'
 
 import Layout from 'components/layouts/clean-layouts'
 const Timer = dynamic(import('./timer'), { ssr: false })
-const ImgGrid = dynamic(import('./img-grid'), { ssr: false })
+const ImgGrid = dynamic(import('./img-grid'))
 const AnimatedButton = dynamic(import('./animated-button'), { ssr: false })
 
 class FaceBlindPage extends Component {

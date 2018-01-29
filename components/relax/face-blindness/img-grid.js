@@ -1,9 +1,13 @@
 import QueueAnim from 'rc-queue-anim';
-import dynamic from "next/dynamic";
 import ImgContainer from './img-container'
 
 export default ({ imgQue, imgSetIndex, hidden, onClickImg }) => (
   <div className="img-wrapper">
+    <QueueAnim
+      delay={150}
+      className="queue-simple"
+      type={['right', 'left']}
+      ease={['easeOutQuart', 'easeInOutQuart']}>
       {imgQue.map((img, index) =>
         <ImgContainer
           src={`/static/img/face-blind/${imgSetIndex}/${img}.jpg`}
@@ -13,17 +17,22 @@ export default ({ imgQue, imgSetIndex, hidden, onClickImg }) => (
           onClick={(i) => onClickImg(i)}
         />
       )}
+    </QueueAnim>
     { /*language=CSS*/ }
-    <style jsx>{`
-        .img-wrapper {
+    <style global jsx>{`
+      .img-wrapper {
+          width: 100%;
+          margin: 20px 0;
+      }
+        .img-wrapper .queue-simple {
+        height: 100%;
             display: grid;
-            margin: 20px 0;
+
             flex: 1;
             grid-template-columns: repeat(4, 1fr);
             grid-template-rows: repeat(3, 1fr);
             grid-column-gap: 20px;
             grid-row-gap: 20px;
-
             justify-items: center;
         }
     `}</style>
