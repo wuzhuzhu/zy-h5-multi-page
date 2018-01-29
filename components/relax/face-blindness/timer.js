@@ -2,13 +2,13 @@ import dynamic from "next/dynamic";
 
 const CountDown = dynamic(import('react-countdown-clock'))
 
-export default ({ paused }) => (
+export default ({ paused, onComplete }) => (
   <div>
-    <CountDown seconds={20}
+    <CountDown seconds={4}
                color="#333"
                alpha={0.7}
                size={200}
                paused={paused}
-               onComplete={() => console.log('完成')} />
+               onComplete={onComplete} />
   </div>
 )

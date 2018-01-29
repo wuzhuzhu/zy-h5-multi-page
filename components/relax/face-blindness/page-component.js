@@ -1,19 +1,21 @@
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
-import css from 'styled-jsx/css'
+// import css from 'styled-jsx/css'
 import { Component } from "react";
 import { shuffle, without } from 'lodash'
 
 import Layout from 'components/layouts/clean-layouts'
+import * as animationData from './cry-emoji.json'
 const Timer = dynamic(import('./timer'), { ssr: false })
 const ImgContainer = dynamic(import('./img-container'))
+const AnimatedButton = dynamic(import('./animated-button'), { ssr: false })
 
 class FaceBlindPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      hidden: [],
-      startTime: undefined,
+      hidden: [0,1,2,3,4,5,6,7,8,9,10,11],
+      // startTime: undefined,
       imgSetIndex: 0,
       imgQue: this.getRandomQue(),
       paused: true,
@@ -33,7 +35,23 @@ class FaceBlindPage extends Component {
     0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5
   ])
 
+  startGame = () => {
+    this.setState({
+      hidden: [],
+      paused: false
+    })
+  }
+
+  onComplete = () => {
+    this.setState({
+      hidden: [0,1,2,3,4,5,6,7,8,9,10,11],
+      paused: false
+    })
+  }
+
   render () {
+
+
     const { revealed, startTime, imgSetIndex, imgQue } = this.state
     return (
       <Layout>
@@ -42,7 +60,23 @@ class FaceBlindPage extends Component {
             <div className="clock-wrapper">
               <Timer
                 paused={this.state.paused}
+                onComplete={this.onComplete}
               />
+            {/*  <div>
+                <p>paused: {this.state.paused ? '是' : '否'}</p>
+                <p>hidden: {this.state.hidden}</p>
+                <p>imgSetIndex: {this.state.imgSetIndex}</p>
+                <p>imgQue: {this.state.imgQue}</p>
+              </div>*/}
+            </div>
+            <div className="nav-wrapper">
+              <AnimatedButton
+                stopped={this.state.paused}
+                isPaused={this.state.paused}
+                onClick={this.startGame}
+              />
+              <p>上一题</p>
+              <p>下一题</p>
             </div>
           </div>
           <div className="img-wrapper">
@@ -76,12 +110,25 @@ class FaceBlindPage extends Component {
             height: 100%
           }
           .sider {
+            background: ghostwhite;
             flex-basis: 250px;
+            display: flex;
+            flex-direction: column;
               /*background: lightgray;*/
           }
+          .sider .nav-wrapper {
+              text-align: center;
+          }
+          .sider .nav-wrapper p {
+              color: #333;
+              margin: 10px 0 0;
+              line-height: 2;
+              background: lightgray;
+          }
           .sider .clock-wrapper {
-              padding: 20px 25px;
-              /*border: 1px solid saddlebrown;*/
+            flex: 1;
+            padding: 20px 25px;
+            /*border: 1px solid saddlebrown;*/
           }`}
         </style>
       </Layout>
