@@ -1,6 +1,4 @@
-import dynamic from "next/dynamic";
-
-const Lottie = dynamic(import('react-lottie'))
+import Lottie from 'react-lottie'
 import * as animationData from "./cry-emoji";
 
 export default ({
