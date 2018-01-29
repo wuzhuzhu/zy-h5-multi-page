@@ -1,6 +1,6 @@
 import React from 'react'
 // import Head from 'next/head'
-import globalCss from 'styles/index.scss'
+import globalCss from 'styles/index.css'
 
 import registerServiceWorker from 'utils/registerServiceWorker'
 
