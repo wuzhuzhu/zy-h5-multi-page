@@ -5,9 +5,8 @@ import { Component } from "react";
 import { shuffle, without } from 'lodash'
 
 import Layout from 'components/layouts/clean-layouts'
-import * as animationData from './cry-emoji.json'
 const Timer = dynamic(import('./timer'), { ssr: false })
-const ImgContainer = dynamic(import('./img-container'))
+const ImgGrid = dynamic(import('./img-grid'), { ssr: false })
 const AnimatedButton = dynamic(import('./animated-button'), { ssr: false })
 
 class FaceBlindPage extends Component {
@@ -80,12 +79,6 @@ class FaceBlindPage extends Component {
                 onComplete={this.onComplete}
                 seconds={this.state.seconds + (this.state.imgSetIndex + 1) * 0.01}
               />
-            {/*  <div>
-                <p>paused: {this.state.paused ? '是' : '否'}</p>
-                <p>hidden: {this.state.hidden}</p>
-                <p>imgSetIndex: {this.state.imgSetIndex}</p>
-                <p>imgQue: {this.state.imgQue}</p>
-              </div>*/}
             </div>
             <div className="nav-wrapper">
               <AnimatedButton
@@ -102,34 +95,16 @@ class FaceBlindPage extends Component {
               </p>
             </div>
           </div>
-          <div className="img-wrapper">
-              {imgQue.map((img, index) =>
-                <ImgContainer
-                  src={`/static/img/face-blind/${imgSetIndex}/${img}.jpg`}
-                  index={index}
-                  hidden={this.state.hidden.indexOf(index) !== -1}
-                  onClick={(i) => this.onClickImg(i)}
-                />
-              )}
-
-          </div>
+          <ImgGrid
+            {...this.state}
+            onClickImg={this.onClickImg}
+          />
         </div>
         { /*language=CSS*/ }
         <style jsx>{`
           .wrapper {
             height: 100vh;
             display: flex;
-          }
-          .wrapper .img-wrapper {
-            display: grid;
-            margin: 20px 0;
-            flex: 1;
-            grid-template-columns: repeat(4, 1fr);
-            grid-template-rows: repeat(3, 1fr);
-            grid-column-gap: 20px;
-            grid-row-gap: 20px;
-
-            justify-items: center;
           }
           .sider {
             background: ghostwhite;
@@ -157,6 +132,15 @@ class FaceBlindPage extends Component {
             /*border: 1px solid saddlebrown;*/
           }`}
         </style>
+        <style jsx global>{`
+          .code-box-shape {
+              margin-top: -50px;
+              background: blue;
+              width: 50px;
+              height: 50px;
+              border-radius: 5px;
+          }
+        `}</style>
       </Layout>
     )
   }
