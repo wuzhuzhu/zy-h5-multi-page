@@ -12,6 +12,7 @@
 - [x] [`PWA`](https://developers.google.com/web/progressive-web-apps/) A new way to deliver amazing user experiences on the web.
 - [x] [`sw-precache-webpack-plugin`](https://github.com/goldhand/sw-precache-webpack-plugin) A webpack plugin for using service workers to cache your external project dependencies
 - [x] [`antd-mobile`](https://mobile.ant.design/index-cn) 一个基于 Preact / React / React Native 的 UI 组件库
+- [x] [`ant-motion`](https://motion.ant.design/) Animation specification and components of Ant Design.
 - [x] [`lottie`](react-lottie) A premire => js animation [`solution`](https://airbnb.design/lottie/) by Airbnb design.
 
 ## Todo
@@ -26,6 +27,7 @@
 - 动态加载模块(next/dynamic)
 - 全局sass样式及theme变量
 - antd-mobile组件库（动态引入main-layout后加载）
+- ant-motion动效库(路由/relax/face-blindness查看示例)
 - lottie自定义动画
 
 ### How To Use

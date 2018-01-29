@@ -4,9 +4,14 @@ import ImgContainer from './img-container'
 export default ({ imgQue, imgSetIndex, hidden, onClickImg }) => (
   <div className="img-wrapper">
     <QueueAnim
-      delay={150}
+      delay={50}
+      duration={300}
       className="queue-simple"
-      type={['right', 'left']}
+      // type={['right', 'left']}
+      animConfig={[
+        { opacity: [1, 0], translateY: [0, 30] },
+        { opacity: [1, 0], translateY: [0, -30] }
+      ]}
       ease={['easeOutQuart', 'easeInOutQuart']}>
       {imgQue.map((img, index) =>
         <ImgContainer
