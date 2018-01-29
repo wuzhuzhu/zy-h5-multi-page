@@ -28,6 +28,7 @@ export default ({
       <style jsx>{`
         .wrapper {
             margin: -75px;
+            cursor: pointer;
         }
         .wrapper div {
             margin: -75px;

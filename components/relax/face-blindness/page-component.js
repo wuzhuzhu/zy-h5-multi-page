@@ -49,9 +49,23 @@ class FaceBlindPage extends Component {
     })
   }
 
+  nextSet = () => {
+    this.setState({
+      imgSetIndex: (this.state.imgSetIndex > 2) ? 0 : this.state.imgSetIndex + 1,
+      hidden: [0,1,2,3,4,5,6,7,8,9,10,11],
+      paused: true,
+    })
+  }
+
+  prevSet= () => {
+    this.setState({
+      imgSetIndex: (this.state.imgSetIndex < 1) ? 0 : this.state.imgSetIndex - 1,
+      hidden: [0,1,2,3,4,5,6,7,8,9,10,11],
+      paused: true,
+    })
+  }
+
   render () {
-
-
     const { revealed, startTime, imgSetIndex, imgQue } = this.state
     return (
       <Layout>
@@ -75,8 +89,13 @@ class FaceBlindPage extends Component {
                 isPaused={this.state.paused}
                 onClick={this.startGame}
               />
-              <p>上一题</p>
-              <p>下一题</p>
+              <p onClick={this.prevSet}>
+                上一套({(this.state.imgSetIndex < 1) ? 4 : this.state.imgSetIndex})
+              </p>
+              <h1>{this.state.imgSetIndex + 1}</h1>
+              <p onClick={this.nextSet}>
+                下一套({(this.state.imgSetIndex > 2) ? 1 : this.state.imgSetIndex + 2})
+              </p>
             </div>
           </div>
           <div className="img-wrapper">
@@ -124,6 +143,10 @@ class FaceBlindPage extends Component {
               margin: 10px 0 0;
               line-height: 2;
               background: lightgray;
+              cursor: pointer;
+          }
+          .sider .nav-wrapper h1 {
+              color: hotpink;
           }
           .sider .clock-wrapper {
             flex: 1;
