@@ -19,6 +19,7 @@ class FaceBlindPage extends Component {
       imgSetIndex: 0,
       imgQue: this.getRandomQue(),
       paused: true,
+      seconds: 20,
     };
   }
 
@@ -37,8 +38,8 @@ class FaceBlindPage extends Component {
 
   startGame = () => {
     this.setState({
-      hidden: [],
-      paused: false
+      hidden: this.state.paused ? [] : this.state.hidden,
+      paused: !this.state.paused,
     })
   }
 
@@ -73,8 +74,10 @@ class FaceBlindPage extends Component {
           <div className="sider">
             <div className="clock-wrapper">
               <Timer
+                imgSetIndex={this.state.imgSetIndex}
                 paused={this.state.paused}
                 onComplete={this.onComplete}
+                seconds={this.state.seconds + (this.state.imgSetIndex + 1) * 0.01}
               />
             {/*  <div>
                 <p>paused: {this.state.paused ? '是' : '否'}</p>
