@@ -122,6 +122,7 @@ class FaceBlindPage extends Component {
           }
           .wrapper .img-wrapper {
             display: grid;
+            margin: 20px 0;
             flex: 1;
             grid-template-columns: repeat(4, 1fr);
             grid-template-rows: repeat(3, 1fr);
@@ -129,8 +130,6 @@ class FaceBlindPage extends Component {
             grid-row-gap: 20px;
 
             justify-items: center;
-
-            height: 100%
           }
           .sider {
             background: ghostwhite;

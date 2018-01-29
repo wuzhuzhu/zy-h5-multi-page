@@ -21,6 +21,7 @@ const ImgContainer = ({ src, index, hidden, onClick }) => (
         background: #aaa;
         width: 100%;
         height: 100%;
+        border-radius: 5px;
 
         display: flex;
         justify-content: center;
@@ -39,6 +40,7 @@ const ImgContainer = ({ src, index, hidden, onClick }) => (
       .img-container img {
         max-height: 100%;
         max-width: 100%;
+        border-radius: 5px;
         filter: grayscale();
         opacity: ${ hidden ? 0 : 1 };
         /*object-fit: cover;*/
