@@ -47,3 +47,39 @@ Deploy it to the cloud with [now](https://zeit.co/now) ([download](https://zeit.
 ```bash
 now
 ```
+
+#### Dynamic import 例子
+
+/a.js Size: 100kb
+``` javascript
+import dynamic from "next/dynamic";
+
+const B = dynamic(import('./b'))
+
+export default () => <div><B /></div>
+```
+
+/b(1).js Size: 100kb, VeryLargePackage's Size: 1000kb
+``` javascript
+import dynamic from "next/dynamic";
+
+const VeryLargePackage = dynamic(import('big-one'))
+
+export default () => <div><VeryLargePackage /></div>
+```
+
+/b(2).js
+``` javascript
+import dynamic from "next/dynamic";
+
+import VeryLargePackage from 'big-one'
+
+export default () => <div><VeryLargePackage /></div>
+```
+
+```npm run build && npm start```之后
+当路由加载了A组件后
+b(1)方式将会异步加载一个100kb(b.js本身) 和另一个1000kb（npm package）
+b(2)方式将会异步加载一个1100kb左右的整合文件
+两种方式均不会在路由未加载A组件时，增大app.js(所有页面均会加载的默认js大小)
+<b>IMPORTANT: </b>不要在Layout等通用组件加载过大的npm package.
