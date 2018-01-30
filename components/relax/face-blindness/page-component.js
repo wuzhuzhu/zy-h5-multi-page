@@ -19,7 +19,7 @@ class FaceBlindPage extends Component {
       imgSetIndex: 0,
       imgQue: this.getRandomQue(),
       paused: true,
-      seconds: 20,
+      seconds: 15,
     };
   }
 
